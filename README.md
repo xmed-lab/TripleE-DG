@@ -45,16 +45,16 @@ conda env create -f IDC_environment.yml
 
 | Sketch    | Cartoon   | Art    |  Photo  | Average 
 | ---------- | :-----------:  | :-----------: | :-----------: | :-----------:
-| 83.65%    | 79.36%   | 85.72%     | 94.37% | 85.78% 
+| 84.45%    | 80.84%   | 85.30%     | 96.27% | 86.72% 
 
-* Evaluate our models: download models from [cartoon](https://gohkust-my.sharepoint.com/:u:/g/personal/eexmli_ust_hk/EQUZU9JnCV5Hje30gTN29BkBNDiFYmBQXbDa1F2Gypn59g?e=j56u9G), [art_painting](https://gohkust-my.sharepoint.com/:u:/g/personal/eexmli_ust_hk/EXgBELtc0VFNpgDQnMeufxEB_EkAfTbF5-pvzQrSEfcNbA?e=CnRCKG), [photo](https://gohkust-my.sharepoint.com/:u:/g/personal/eexmli_ust_hk/Ef-B6X98bBNPtH3v2qKLVo0BKE7GlyNSkaWM0T91abOoLg?e=5o8fbG), [sketch](https://gohkust-my.sharepoint.com/:u:/g/personal/eexmli_ust_hk/ETlPaYXHTUdFkc82wkrL5y4BUs7Oom8exsrg-clk0zuyRg?e=ZvvDQU). 
+<!-- * Evaluate our models: download models from [cartoon](https://gohkust-my.sharepoint.com/:u:/g/personal/eexmli_ust_hk/EQUZU9JnCV5Hje30gTN29BkBNDiFYmBQXbDa1F2Gypn59g?e=j56u9G), [art_painting](https://gohkust-my.sharepoint.com/:u:/g/personal/eexmli_ust_hk/EXgBELtc0VFNpgDQnMeufxEB_EkAfTbF5-pvzQrSEfcNbA?e=CnRCKG), [photo](https://gohkust-my.sharepoint.com/:u:/g/personal/eexmli_ust_hk/Ef-B6X98bBNPtH3v2qKLVo0BKE7GlyNSkaWM0T91abOoLg?e=5o8fbG), [sketch](https://gohkust-my.sharepoint.com/:u:/g/personal/eexmli_ust_hk/ETlPaYXHTUdFkc82wkrL5y4BUs7Oom8exsrg-clk0zuyRg?e=ZvvDQU). 
 Specify the path `--resume` for models and run 
 ```
 python main_dg.py -a resnet18 --lr 0.001 --epochs 100 --batch-size 4  .  --source cartoon  sketch   photo --target art_painting   --ratio 1.0  --result exp/dg/dg_art  --baug 4 --gpu 0 --times 1  --ncesole  --evaluate --resume exp/model_best_art.pth.tar 
 ```
 
 
-
+ -->
 ## Citation
 
 If this code is useful for your research, please consider citing:
