@@ -1,8 +1,8 @@
 ## TripleE: Frustratingly Easy Domain Generalization
 
-By [Xiaomeng Li](https://xmengli.github.io/), [Hongyu Ren](http://hyren.me/), Huifeng Yao and [Ziwei Liu](https://liuziwei7.github.io/).
+By [Xiaomeng Li](https://xmengli.github.io/), [Hongyu Ren](http://hyren.me/), [Huifeng Yao](https://scholar.google.com/citations?hl=en&user=hzNA39EAAAAJ) and [Ziwei Liu](https://liuziwei7.github.io/).
 
-This repository is for our paper [TripleE: Frustratingly Easy Domain Generalization]. 
+This repository is for our paper [TripleE: Episodic Replay for Domain Generalization]. 
 
 <!-- <br/>
 <p align="center">
