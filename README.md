@@ -1,4 +1,4 @@
-## TripleE: Frustratingly Easy Domain Generalization
+## TripleE: Easy Domain Generalization via Episodic Replay
 
 By [Xiaomeng Li](https://xmengli.github.io/), [Hongyu Ren](http://hyren.me/), [Huifeng Yao](https://scholar.google.com/citations?hl=en&user=hzNA39EAAAAJ) and [Ziwei Liu](https://liuziwei7.github.io/).
 

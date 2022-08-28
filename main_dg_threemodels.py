@@ -23,10 +23,7 @@ from domain.losses import SupConLoss
 from domain.common_lib import get_train_standard_transformers, get_train_ESAugSole_transformers, get_val_transformer, \
     get_optim_and_scheduler, get_lr, save_checkpoint, AverageMeter
 from domain.stylize_data import stylize_image
-import domain.net
-
-
-
+import domain.net as net
 
 
 torch.set_num_threads(6)
@@ -363,7 +360,6 @@ def train(train_loader, model, criterion, ce_criterion, optimizer, args):
         concate_label = concate_label.cuda()
         concate_data = concate_data.cuda()
         index_dic = torch.cat(index_dic, 0)
-
 
         if args.ESAugS:
             if args.classes == 7:

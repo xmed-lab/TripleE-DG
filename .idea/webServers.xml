@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="b354c734-d63e-4edf-8041-cf97f94b8dfc" name="eez191.ece.ust.hk">
+        <fileTransfer accessType="SFTP" host="eez191.ece.ust.hk" port="22" sshConfigId="ba30d811-aae9-49f9-b7ab-53bbd843d500" sshConfig="eexmli@eez191.ece.ust.hk:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
