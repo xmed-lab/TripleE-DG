@@ -77,14 +77,7 @@ python main_dg_digits.py -a cnn --lr 0.01 --epochs 100 --batch-size 4  .  --sour
 python main_dg_digits.py -a cnn --lr 0.01 --epochs 100 --batch-size 4  .  --source  svhn  syn  mnist_m --target mnist   --ratio 1.0  --result exp/dg/digits_mnist_ensemble  --baug 4 --gpu 5 --times 1  --ncesole --evaluate --resume exp/dg/digits_mnist_ensemble/model_best.pth.tar
 ```
 
-## Train on COVID-19 dataset 
-```
-python main_dg_covid.py -a resnet18 --lr 0.001 --epochs 100 --batch-size 4  .  --source Set1 Set2 Set3 --target Set4   --ratio 1.0  --result exp/dg/covid  --baug 4 --gpu 0 --times 1  --ncesole
-``` 
 
-
-## Note
-* Contact: Xiaomeng Li (eexmli@ust.hk)
 
 ## Citation
 
