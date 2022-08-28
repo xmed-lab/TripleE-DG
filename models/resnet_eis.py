@@ -24,7 +24,6 @@ class ResNet(nn.Module):
         self.conv1 = nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3,
                                bias=False)
         self.bn1 = nn.BatchNorm2d(64)
-        # self.bn1 = nn.GroupNorm(4, 64)
 
         self.relu = nn.ReLU(inplace=True)
         self.maxpool = nn.MaxPool2d(kernel_size=3, stride=2, padding=1)
@@ -32,12 +31,8 @@ class ResNet(nn.Module):
         self.layer2 = self._make_layer(block, 128, layers[1], stride=2)
         self.layer3 = self._make_layer(block, 256, layers[2], stride=2)
         self.layer4 = self._make_layer(block, 512, layers[3], stride=2)
-        # self.avgpool = nn.AvgPool2d(7, stride=1)  # use 224
         self.avgpool = nn.AvgPool2d(3, stride=1)
-        # self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
         self.l2norm = Normalize(2)
-
-        # self.class_classifier = nn.Linear(512 * block.expansion, classes)
 
 
         self.embedding = nn.Sequential(nn.Linear(512 * block.expansion, 128))
@@ -68,7 +63,6 @@ class ResNet(nn.Module):
                 nn.Conv2d(self.inplanes, planes * block.expansion,
                           kernel_size=1, stride=stride, bias=False),
                 nn.BatchNorm2d(planes * block.expansion),
-                # nn.GroupNorm(4, planes * block.expansion)
             )
 
         layers = []
@@ -98,10 +92,8 @@ class ResNet(nn.Module):
         x = x.view(x.size(0), -1)
 
 
-        # return self.classifier(self.l2norm(self.embedding(x))), self.l2norm(self.projection_head(x)), self.l2norm(x)   #baseline
         return self.classifier(x), self.l2norm(self.projection_head(x)), self.l2norm(x)  #baseline_v2
-        # return self.classifier(x), self.l2norm(self.projection_head(x)), self.l2norm(x)  # baseline_v3, change avgpool to adaptivepool
-        # return self.classifier(self.l2norm(self.projection_head(x))), self.l2norm(self.projection_head(x)), self.l2norm(x)  # baseline_v4,
+
 
 
 def resnet18(pretrained=True, **kwargs):

@@ -2,7 +2,7 @@
 
 By [Xiaomeng Li](https://xmengli.github.io/), [Hongyu Ren](http://hyren.me/), [Huifeng Yao](https://scholar.google.com/citations?hl=en&user=hzNA39EAAAAJ) and [Ziwei Liu](https://liuziwei7.github.io/).
 
-This repository is for our paper [TripleE: Episodic Replay for Domain Generalization]. 
+This repository is for our paper [TripleE: Easy Domain Generalization via Episodic Replay]. 
 
 <!-- <br/>
 <p align="center">
@@ -13,17 +13,18 @@ This repository is for our paper [TripleE: Episodic Replay for Domain Generaliza
 ## Installation
 
 ```
-conda env create -f environment.yml
+conda env create -f IDC_environment.yml
 ```
-Note that the code is only tested in the above environment. 
 
 
 ## Data Preparation
 * Download [PACS dataset](https://drive.google.com/drive/folders/1SKvzI8bCqW9bcoNLNCrTGbg7gBSw97qO), 
 [Digits-DG dataset](https://drive.google.com/uc?id=15V7EsHfCcfbKgsDmzQKj_DfXt_XYp_P7), 
 [Office-Home dataset](https://drive.google.com/file/d/0B81rNlvomiwed0V1YUxQdC1uOTg/view?resourcekey=0-2SNWq0CDAuWOBRRBL7ZZsw)
-These three datasets are widely used in many DG papers as the benchmark.
-  
+[VCLS dataset]
+[XXX dataset]
+[XXX dataset]
+
 
 * Put data under `./DATASET/`
 * The correct path should be 

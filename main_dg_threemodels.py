@@ -9,26 +9,25 @@ import torch.backends.cudnn as cudnn
 import torch.optim
 import torch.utils.data
 import torch.utils.data.distributed
-
 from tensorboardX import SummaryWriter
+import torch.nn.functional as F
+from torch.utils.data import random_split
 from os.path import join
 import matplotlib
-
 matplotlib.use('pdf')
 from tqdm import tqdm
 from models.resnet_eis import resnet50, resnet18
+
+
 from domain.losses import SupConLoss
-
-from domain.losses import kNN, multi_kNN
-import torch.nn.functional as F
-from torch.utils.data import random_split
-from common_lib import get_train_standard_transformers, get_train_ESAugSole_transformers, get_val_transformer, \
+from domain.common_lib import get_train_standard_transformers, get_train_ESAugSole_transformers, get_val_transformer, \
     get_optim_and_scheduler, get_lr, save_checkpoint, AverageMeter
+from domain.stylize_data import stylize_image
+import domain.net
 
-from stylize_data import stylize_image
-import net
-from wilds import get_dataset
-from wilds.common.data_loaders import get_train_loader
+
+
+
 
 torch.set_num_threads(6)
 parser = argparse.ArgumentParser(description='PyTorch ImageNet Training')
@@ -130,14 +129,7 @@ vgg.cuda()
 decoder.cuda()
 
 
-
-def main():
-
-    main_worker(args)
-
-
-def main_worker(args):
-
+def main_worker():
 
     # create model
     if args.arch == "resnet18":
@@ -297,13 +289,11 @@ def main_worker(args):
         # writer.add_scalar('lr', get_lr(optimizer_1), epoch + 1)
 
         # val
-        # acc = multi_kNN(500, model, sub_model_1, sub_model_2, sub_model_3, val_loader, datasets_train_val, args, 10)
         acc = testmodel(model_1, model_2, model_3, val_loader)
         writer.add_scalar("val_acc", acc, epoch + 1)
 
         print(
             f"[ Val | {epoch + 1:03d}/{args.epochs:03d} ] val_acc = {acc:.5f}")
-        # test_acc = multi_kNN(500, model, sub_model_1, sub_model_2, sub_model_3, test_loader, datasets_train_val, args, 10)
         test_acc = testmodel(model_1, model_2, model_3, test_loader)
         writer.add_scalar("test_acc", test_acc, epoch + 1)
         """@nni.report_intermediate_result(test_acc.item())"""
@@ -492,4 +482,4 @@ def testmodel(model_1, model_2, model_3, data_loader):
 
 
 if __name__ == '__main__':
-    main()
+    main_worker()

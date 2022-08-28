@@ -1,4 +1,3 @@
-import cv2
 import sys
 if sys.version_info[0] == 2:
     import cPickle as pickle
@@ -6,19 +5,15 @@ else:
     import pickle
 import torch.utils.data as data
 import numpy as np
-from skimage.transform import resize
 from PIL import Image
-import pandas as pd
-from os.path import join, dirname
 from random import sample, random
 from torch.utils.data import Dataset
 import torchvision.transforms as transforms
 import bisect
 import torch
 import torchvision
-from data_utils import fourier_augmentation
+from domain.data_utils import fourier_augmentation
 
-import os
 
 # lib
 def get_split_dataset_info(txt_list, val_percentage):
@@ -234,9 +229,6 @@ class JigsawDataset(data.Dataset):
                 if np.random.random() <= float(1/15):  # modify to -1 to disable Fourier
                     aug_image, _ = fourier_augmentation(image, ref_image, 'AM', np.random.random(), np.random.random())
                     img_box.append(self._augment_tile(self._image_transformer(aug_image)))  # ESAugF1
-                    # img_box.append(self._augment_tile((aug_image))) # ESAugF2
-                    # img_box.append(self._augment_tile(transform_train_onlycrop(aug_image)))  # ESAugF3
-                    # img_box.append(self._augment_tile(transform_train_onlycrop(aug_image)))  # ESAugF4: with two random ratios
                 else:
                     img_box.append(self._augment_tile(self._image_transformer(image)))
 

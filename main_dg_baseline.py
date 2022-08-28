@@ -17,10 +17,9 @@ matplotlib.use('pdf')
 from tqdm import tqdm
 from models.resnet_eis import resnet50, resnet18
 from domain.losses import SupConLoss
-
-from domain.losses import kNN, multi_kNN
 import torch.nn.functional as F
-from common_lib import get_train_standard_transformers, get_train_ESAugSole_transformers, get_val_transformer, get_optim_and_scheduler, get_lr, save_checkpoint, AverageMeter
+from domain.common_lib import get_train_standard_transformers, get_train_ESAugSole_transformers, get_val_transformer, \
+    get_optim_and_scheduler, get_lr, save_checkpoint, AverageMeter
 
 
 
