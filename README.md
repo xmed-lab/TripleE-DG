@@ -35,7 +35,7 @@ conda env create -f IDC_environment.yml
 ```
 
 
-## Train on PACS dataset
+## Training
 * Check training command in `./scripts/`. 
 * Change `times` to `1,2,3` to run the experiment for 3 times. 
 * Set `target` to get results on different target domains.
