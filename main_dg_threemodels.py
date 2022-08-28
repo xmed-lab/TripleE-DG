@@ -92,16 +92,20 @@ parser.add_argument("--resume_3", default="exp/skin/skin_moco_v1/", type=str)
 args = parser.parse_args()
 
 
-if args.classes == 65:
-    main_path = "../../FACT-main-second/DATASET/OfficeHome/"
+root = "/home/eexmli/196project/FACT-main-second/"
+
+if args.classes == 65:  # OfficeHome
+    main_path = root + "/DATASET/OfficeHome/"
     filelists = "office_txt_lists"
     domain_list = ["Clipart", "Art", "Product", "Real_World"]
-elif args.classes == 7:
-    main_path = "../../FACT-main-second/"
+    style_folder = root + 'OfficeHome'
+elif args.classes == 7:  # PACS
+    main_path = root
     filelists = "txt_lists"
     domain_list = ["art_painting", "cartoon", "sketch", "photo"]
-elif args.classes == 345:
-    main_path = "/home/eexmli/193dataset/"
+    style_folder = root + '/DATASET/PACS/kfold'
+elif args.classes == 345:  # DomainNet
+    main_path = "/DomainBed/"
     filelists = "domainbed_txt_lists"
     domain_list = ["clipart", "infograph", "painting", "quickdraw", "real", "sketch"]
 else:
@@ -124,7 +128,6 @@ vgg.load_state_dict(torch.load('pre_models/vgg_normalised.pth'))
 vgg = nn.Sequential(*list(vgg.children())[:31])
 vgg.cuda()
 decoder.cuda()
-
 
 def main_worker():
 

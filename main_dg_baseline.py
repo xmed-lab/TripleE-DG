@@ -89,21 +89,24 @@ parser.add_argument("--classes", default=65, type=int)
 
 args = parser.parse_args()
 
-if args.classes == 65:
-    main_path = "../../FACT-main-second/DATASET/OfficeHome/"
+root = "/home/eexmli/196project/FACT-main-second/"
+
+if args.classes == 65:  # OfficeHome
+    main_path = root + "/DATASET/OfficeHome/"
     filelists = "office_txt_lists"
     domain_list = ["Clipart", "Art", "Product", "Real_World"]
-elif args.classes == 7:
-    main_path = "../../FACT-main-second/"
+    style_folder = root + 'OfficeHome'
+elif args.classes == 7:  # PACS
+    main_path = root
     filelists = "txt_lists"
     domain_list = ["art_painting", "cartoon", "sketch", "photo"]
-elif args.classes == 345:
-    main_path = "/home/eexmli/DomainBed/"
-    filelists = "txt_lists"
+    style_folder = root + '/DATASET/PACS/kfold'
+elif args.classes == 345:  # DomainNet
+    main_path = "/DomainBed/"
+    filelists = "domainbed_txt_lists"
     domain_list = ["clipart", "infograph", "painting", "quickdraw", "real", "sketch"]
 else:
     exit(0)
-
 
 
 def main():
@@ -117,6 +120,7 @@ def main_worker(args):
     if args.arch == "resnet18":
         model = resnet18(classes=args.classes, args=args)
         print("=> creating model '{}'".format("resnet18"))
+        exit(0)
     else:
         model = resnet50(classes=args.classes, args=args)
         print("=> creating model '{}'".format("resnet50"))

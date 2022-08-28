@@ -1,0 +1,11 @@
+net='resnet50'
+lr=0.001
+epochs=100
+batch_size=16
+ratio=1.0
+baug=4
+times=1
+expname='Office_art_TripleE_F'
+path='exp/dg/'
+result=$path$expname
+CUDA_VISIBLE_DEVICES='3' python main_dg_threemodels.py -a $net --lr $lr --epochs $epochs --batch-size $batch_size .  --target Product  --ratio $ratio  --result $result  --baug $baug --expname $expname  --times $times  --ESAugF  --classes 65

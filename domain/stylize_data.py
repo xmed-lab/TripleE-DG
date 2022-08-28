@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import argparse
-from function import adaptive_instance_normalization
+from domain.function import adaptive_instance_normalization
 from pathlib import Path
 from PIL import Image
 import random

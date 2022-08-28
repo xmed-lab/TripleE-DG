@@ -31,7 +31,7 @@ class ResNet(nn.Module):
         self.layer2 = self._make_layer(block, 128, layers[1], stride=2)
         self.layer3 = self._make_layer(block, 256, layers[2], stride=2)
         self.layer4 = self._make_layer(block, 512, layers[3], stride=2)
-        self.avgpool = nn.AvgPool2d(3, stride=1)
+        self.avgpool = nn.AvgPool2d(7, stride=1)
         self.l2norm = Normalize(2)
 
 
@@ -77,6 +77,7 @@ class ResNet(nn.Module):
         return False
 
     def forward(self, x):
+
         x = self.conv1(x)
         x = self.bn1(x)
         x = self.relu(x)
@@ -85,12 +86,10 @@ class ResNet(nn.Module):
         x = self.layer1(x)
         x = self.layer2(x)
         x = self.layer3(x)
-
         x = self.layer4(x)
 
         x = self.avgpool(x)
         x = x.view(x.size(0), -1)
-
 
         return self.classifier(x), self.l2norm(self.projection_head(x)), self.l2norm(x)  #baseline_v2
 

@@ -1,0 +1,11 @@
+net='resnet18'
+lr=0.001
+epochs=100
+batch_size=64
+ratio=1.0
+baug=1
+times=1
+expname='PACS_baseline_photo'
+path='exp/dg/'
+result=$path$expname
+CUDA_VISIBLE_DEVICES='2' python main_dg_baseline.py -a $net --lr $lr --epochs $epochs --batch-size $batch_size  .  --target photo --ratio $ratio  --result $result  --baug $baug --expname $expname --times $times  --classes 7
