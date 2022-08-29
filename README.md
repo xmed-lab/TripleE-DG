@@ -24,7 +24,7 @@ conda env create -f IDC_environment.yml
 [VLCS dataset](https://drive.google.com/uc?id=1skwblH1_okBwxWxmRsp9_qi15hyPpxg8),
 [TerraInc dataset](https://lilablobssc.blob.core.windows.net/caltechcameratraps/eccv_18_all_images_sm.tar.gz),
 [DomainNet dataset](http://ai.bu.edu/M3SDA/).
-You can download these dataset using this [script](https://github.com/facebookresearch/DomainBed/blob/main/domainbed/scripts/download.py)
+You can download these datasets using this [script](https://github.com/facebookresearch/DomainBed/blob/main/domainbed/scripts/download.py).
 
 * Put data under `./DATASET/`
 * The correct path should be 
