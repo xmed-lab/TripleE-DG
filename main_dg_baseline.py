@@ -102,9 +102,19 @@ elif args.classes == 7:  # PACS
     domain_list = ["art_painting", "cartoon", "sketch", "photo"]
     style_folder = root + '/DATASET/PACS/kfold'
 elif args.classes == 345:  # DomainNet
-    main_path = "/DomainBed/"
-    filelists = "domainbed_txt_lists"
+    main_path = "./DATASET/DomainNet/"
+    filelists = "domain_net_lists"
     domain_list = ["clipart", "infograph", "painting", "quickdraw", "real", "sketch"]
+elif args.classes == 5: # VLCS
+    main_path = "./DATASET/VLCS/"
+    filelists = "VLCS_lists"
+    domain_list = ['Caltech101', 'LabelMe', 'SUN09', 'VOC2007']
+    style_folder = './DATASET/VLCS/'
+elif args.classes == 10: # TerraIncognita
+    main_path = "./DATASET/terra_incognita/"
+    filelists = "TerraInc_lists"
+    domain_list = ['L38', 'L43', 'L46', 'L100']
+    style_folder = './DATASET/terra_incognita/'
 else:
     exit(0)
 

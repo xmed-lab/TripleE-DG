@@ -21,10 +21,10 @@ conda env create -f IDC_environment.yml
 * Download [PACS dataset](https://drive.google.com/drive/folders/1SKvzI8bCqW9bcoNLNCrTGbg7gBSw97qO), 
 [Digits-DG dataset](https://drive.google.com/uc?id=15V7EsHfCcfbKgsDmzQKj_DfXt_XYp_P7), 
 [Office-Home dataset](https://drive.google.com/file/d/0B81rNlvomiwed0V1YUxQdC1uOTg/view?resourcekey=0-2SNWq0CDAuWOBRRBL7ZZsw)
-[VCLS dataset]
-[XXX dataset]
-[XXX dataset]
-
+[VLCS dataset](https://drive.google.com/uc?id=1skwblH1_okBwxWxmRsp9_qi15hyPpxg8)
+[TerraInc dataset](https://lilablobssc.blob.core.windows.net/caltechcameratraps/eccv_18_all_images_sm.tar.gz)
+[DomainNet dataset](http://ai.bu.edu/M3SDA/)
+You can download these dataset using this [script](https://github.com/facebookresearch/DomainBed/blob/main/domainbed/scripts/download.py)
 
 * Put data under `./DATASET/`
 * The correct path should be 
@@ -32,6 +32,8 @@ conda env create -f IDC_environment.yml
 ./DATASET/PACS/kfold/sketch/...
 ./DATASET/digits_dg/mnist/...
 ./DATASET/OfficeHome/Art/...  
+./DATASET/VLCS/Caltech101...
+./DATASET/terra_incognita/L38...
 ```
 
 

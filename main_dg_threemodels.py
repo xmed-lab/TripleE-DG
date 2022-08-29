@@ -104,14 +104,23 @@ elif args.classes == 7:  # PACS
     filelists = "txt_lists"
     domain_list = ["art_painting", "cartoon", "sketch", "photo"]
     style_folder = root + '/DATASET/PACS/kfold'
-elif args.classes == 345:  # DomainNet
-    main_path = "/DomainBed/"
-    filelists = "domainbed_txt_lists"
+elif args.classes == 345: # DomainNet
+    main_path = "./DATASET/DomainNet/"
+    filelists = "domain_net_lists"
     domain_list = ["clipart", "infograph", "painting", "quickdraw", "real", "sketch"]
+    style_folder = './DATASET/DomainNet/'
+elif args.classes == 5: # VLCS
+    main_path = "./DATASET/VLCS/"
+    filelists = "VLCS_lists"
+    domain_list = ['Caltech101', 'LabelMe', 'SUN09', 'VOC2007']
+    style_folder = './DATASET/VLCS/'
+elif args.classes == 10: # TerraIncognita
+    main_path = "./DATASET/terra_incognita/"
+    filelists = "TerraInc_lists"
+    domain_list = ['L38', 'L43', 'L46', 'L100']
+    style_folder = './DATASET/terra_incognita/'
 else:
     exit(0)
-
-
 
 
 ## Global para.
@@ -386,8 +395,8 @@ def train(train_loader, model, criterion, ce_criterion, optimizer, args):
 
                         domain_name = random.sample(source_domain, 1)[0]
                         label_path = os.path.join(style_folder, domain_name, real_label)
-
                         concate_data[idx] = stylize_image(vgg, decoder, concate_data[idx], 10, label_path, 224)
+
             elif args.classes == 65:
                 sty_idx = [i for i, x in enumerate(index_dic) if x]
                 for idx in sty_idx:
@@ -398,7 +407,35 @@ def train(train_loader, model, criterion, ce_criterion, optimizer, args):
                     label_path = os.path.join(main_path, domain_name, real_label)
                     concate_data[idx] = stylize_image(vgg, decoder, concate_data[idx], 10, label_path, 224)
 
+            elif args.classes == 345:
+                sty_idx = [i for i, x in enumerate(index_dic) if x]
+                for idx in sty_idx:
+                    read_label = main_path+ '/clipart'
+                    label_arr = os.listdir(read_label)
+                    real_label = label_arr[int(concate_label[idx])]
+                    domain_name = random.sample(source_domain, 1)[0]
+                    label_path = os.path.join(main_path, domain_name, real_label)
+                    concate_data[idx] = stylize_image(vgg, decoder, concate_data[idx], 10, label_path, 224)
 
+            elif args.classes == 5:
+                sty_idx = [i for i, x in enumerate(index_dic) if x]
+                for idx in sty_idx:
+                    read_label = main_path+ '/LabelMe'
+                    label_arr = os.listdir(read_label)
+                    real_label = label_arr[int(concate_label[idx])]
+                    domain_name = random.sample(source_domain, 1)[0]
+                    label_path = os.path.join(main_path, domain_name, real_label)
+                    concate_data[idx] = stylize_image(vgg, decoder, concate_data[idx], 10, label_path, 224)
+
+            elif args.classes == 10:
+                sty_idx = [i for i, x in enumerate(index_dic) if x]
+                for idx in sty_idx:
+                    read_label = main_path+ '/L38'
+                    label_arr = os.listdir(read_label)
+                    real_label = label_arr[int(concate_label[idx])]
+                    domain_name = random.sample(source_domain, 1)[0]
+                    label_path = os.path.join(main_path, domain_name, real_label)
+                    concate_data[idx] = stylize_image(vgg, decoder, concate_data[idx], 10, label_path, 224)
 
         class_logit, features, _ = model(concate_data)
 
