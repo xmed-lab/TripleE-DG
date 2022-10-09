@@ -2,7 +2,7 @@
 
 By [Xiaomeng Li](https://xmengli.github.io/), [Hongyu Ren](http://hyren.me/), [Huifeng Yao](https://scholar.google.com/citations?hl=en&user=hzNA39EAAAAJ) and [Ziwei Liu](https://liuziwei7.github.io/).
 
-This repository is for our paper [TripleE: Easy Domain Generalization via Episodic Replay]. 
+This repository is for our paper [TripleE: Easy Domain Generalization via Episodic Replay](https://arxiv.org/pdf/2210.01807.pdf). 
 
 <!-- <br/>
 <p align="center">
